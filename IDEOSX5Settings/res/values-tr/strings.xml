@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IDEOS X5 Ayarları</string>
+    <string name="action_settings">Ayarlar</string>
+
+
+    <string name="pref_general_title">Genel</string>
+
+    <string name="pref_general_force_mic_title">Mikrafona zorla</string>
+    <string name="pref_general_force_mic_summary">Herzaman telefonun mikrafonunu kullan</string>
+    <string name="pref_general_force_mic_toast">Lütfen kulaklığı yeniden takın</string>
+
+    <string name="pref_general_bt_power_title">Bluetooth gücü</string>
+    <string-array name="pref_general_bt_power_entries">
+        <item>Az (Zayıf sinyal)</item>
+        <item>Normal (Ortalama sinyal)</item>
+        <item>Güçlü (Güçlü sinyal)</item>
+    </string-array>
+    <string name="pref_general_bt_power_toast">Lütfen Bluetooth u yeniden açın</string>
+
+
+    <string name="pref_usb_title">USB</string>
+
+    <string name="pref_usb_host_title">OTG modu</string>
+    <string name="pref_usb_host_summary">Cihaza USB aracılığı ile aygıtlar bağlamanıza yarar</string>
+    <string name="pref_usb_host_not_title">OTG modu açık</string>
+    <string name="pref_usb_host_not_text">Açmak için tıklayın</string>
+
+    <string name="pref_usb_current_title">Şarj voltajı</string>
+    <string-array name="pref_usb_current_entries">
+        <item>Otomatik</item>
+        <item>100mA</item>
+        <item>500mA (usb)</item>
+        <item>800mA (usb)</item>
+        <item>1000mA (Adaptör)</item>
+    </string-array>
+
+    <string name="pref_sensors_title">Sensörler</string>
+
+    <string name="pref_sensors_mag_calib_title">Manyetik sensor kalibrasyonu</string>
+    <string name="pref_sensors_mag_calib_summary">Bir önceki kalibrasyonu sil</string>
+</resources>

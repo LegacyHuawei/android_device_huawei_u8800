@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IDEOS X5 Asetukset</string>
+    <string name="action_settings">Asetukset</string>
+
+
+    <string name="pref_general_title">Yleinen</string>
+
+    <string name="pref_general_force_mic_title">Pakota mikrofoni</string>
+    <string name="pref_general_force_mic_summary">Käytä aina puhelimen mikrofonia</string>
+    <string name="pref_general_force_mic_toast">Kytke kuulokkeet uudelleen</string>
+
+    <string name="pref_general_bt_power_title">Bluetoothin teho</string>
+    <string-array name="pref_general_bt_power_entries">
+        <item>Heikko (heikko signaali)</item>
+        <item>Normaali (keskitason signaali)</item>
+        <item>Vahva (vahva signaali)</item>
+    </string-array>
+    <string name="pref_general_bt_power_toast">Kytke bluetooth päälle uudelleen</string>
+
+
+    <string name="pref_usb_title">USB</string>
+
+    <string name="pref_usb_host_title">Isäntätila</string>
+    <string name="pref_usb_host_summary">Kytke oheislaitteita laitteeseesi</string>
+    <string name="pref_usb_host_not_title">Isäntätila käytössä</string>
+    <string name="pref_usb_host_not_text">Paina avataksesi</string>
+
+    <string name="pref_usb_current_title">Lataamisen sähkövirta</string>
+    <string-array name="pref_usb_current_entries">
+        <item>Automaattinen</item>
+        <item>100mA</item>
+        <item>500mA (usb-laturi)</item>
+        <item>800mA (usb-laturi)</item>
+        <item>1000mA (tehokas laturi)</item>
+    </string-array>
+
+    <string name="pref_sensors_title">Sensorit</string>
+
+    <string name="pref_sensors_mag_calib_title">Magneettisuussensorin kalibrointi</string>
+    <string name="pref_sensors_mag_calib_summary">Poista edellinen kalibrointi</string>
+    
+
+    <string name="pref_hwaddr_title">HW-osoitteet</string>
+
+    <string name="pref_hwaddr_custom_title">Mukautetut HW-osoitteet</string>
+    <string name="pref_hwaddr_custom_summary">Käytä mukautettua BT/WLAN MAC-osoitetta</string>
+    <string name="pref_hwaddr_bt_title">Bluetoothin MAC-osoite</string>
+    <string name="pref_hwaddr_wlan_title">Wi-Fi:n MAC-osoite</string>
+</resources>
