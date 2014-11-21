@@ -21,8 +21,5 @@ include $(LOCAL_PATH)/common.mk
 PRODUCT_COPY_FILES += $(foreach file,$(keylayouts),\
 	$(LOCAL_PATH)/$(file):system/usr/keylayout/$(file))
 
-PRODUCT_COPY_FILES += $(foreach file,$(keycharmaps),\
-	$(LOCAL_PATH)/$(file):system/usr/keychars/$(file))
-
 PRODUCT_COPY_FILES += $(foreach file,$(keyconfigs),\
 	$(LOCAL_PATH)/$(file):system/usr/idc/$(file))

@@ -23,12 +23,6 @@ keylayouts := \
 	atmel_mxt_ts.kl \
 	synaptics_rmi4.kl
 
-keycharmaps := #\
-#	Generic.kcm \
-#	Virtual.kcm \
-#	qwerty.kcm \
-#	qwerty2.kcm
-
 keyconfigs := \
 	atmel_mxt_ts.idc \
 	synaptics_rmi4.idc
