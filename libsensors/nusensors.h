@@ -21,6 +21,7 @@
 #include <errno.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
+#include <math.h>
 
 #include <linux/input.h>
 
@@ -39,9 +40,8 @@ int init_nusensors(hw_module_t const* module, hw_device_t** device);
 
 #define ID_A  (0)
 #define ID_M  (1)
-#define ID_O  (2)
+#define ID_L  (2)
 #define ID_P  (3)
-#define ID_L  (4)
 
 /*****************************************************************************/
 
@@ -51,39 +51,31 @@ int init_nusensors(hw_module_t const* module, hw_device_t** device);
 
 /*****************************************************************************/
 
+/* For Accelerometer */
 #define EVENT_TYPE_ACCEL_X          ABS_X
 #define EVENT_TYPE_ACCEL_Y          ABS_Y
 #define EVENT_TYPE_ACCEL_Z          ABS_Z
 #define EVENT_TYPE_ACCEL_STATUS     ABS_WHEEL
 
-#define EVENT_TYPE_YAW              ABS_RX
-#define EVENT_TYPE_PITCH            ABS_RY
-#define EVENT_TYPE_ROLL             ABS_RZ
-#define EVENT_TYPE_ORIENT_STATUS    ABS_RUDDER
-
+/* For Magnetometer */
 #define EVENT_TYPE_MAGV_X           ABS_X
 #define EVENT_TYPE_MAGV_Y           ABS_Y
 #define EVENT_TYPE_MAGV_Z           ABS_Z
 
-#define EVENT_TYPE_TEMPERATURE      ABS_THROTTLE
-#define EVENT_TYPE_STEP_COUNT       ABS_GAS
+/* For Proximity */
 #define EVENT_TYPE_PROXIMITY        ABS_DISTANCE
+
+/* For Light */
 #define EVENT_TYPE_LIGHT            ABS_MISC
 
-// 1000 LSG = 1G
-#define LSG                         (1000.0f)
-
-
+// 1024 LSG = 1G
+#define LSG                         (1024.0f)
+#define MAX_RANGE_A                 (2*GRAVITY_EARTH)
 // conversion of acceleration data to SI units (m/s^2)
 #define CONVERT_A                   (GRAVITY_EARTH / LSG)
 
 // conversion of magnetic data to uT units
 #define CONVERT_M                   (1.0f/10.0f)
-
-#define CONVERT_O                   (1.0f)
-#define CONVERT_O_Y                 (CONVERT_O)
-#define CONVERT_O_P                 (CONVERT_O)
-#define CONVERT_O_R                 (-CONVERT_O)
 
 #define SENSOR_STATE_MASK           (0x7FFF)
 

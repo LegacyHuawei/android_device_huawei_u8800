@@ -57,7 +57,7 @@ LightSensor::~LightSensor() {
     close_device();
 }
 
-int LightSensor::enable(int32_t handle, int enabled)
+int LightSensor::setEnable(int32_t handle, int enabled)
 {
     ALOGD_IF(LIGHT_DEBUG, "LightSensor: enable %d %d", handle, enabled);
 

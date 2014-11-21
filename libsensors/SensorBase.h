@@ -45,6 +45,9 @@ protected:
     int open_device();
     int close_device();
 
+    int write_sys_attribute(
+        char const *path, char const *value, int bytes);
+
 public:
             SensorBase(
                     const char* dev_name,
@@ -56,7 +59,7 @@ public:
     virtual bool hasPendingEvents() const;
     virtual int getFd() const;
     virtual int setDelay(int32_t handle, int64_t ns);
-    virtual int enable(int32_t handle, int enabled) = 0;
+    virtual int setEnable(int32_t handle, int enabled) = 0;
 };
 
 /*****************************************************************************/

@@ -67,7 +67,7 @@ MagSensor::~MagSensor() {
     close_device();
 }
 
-int MagSensor::enable(int32_t handle, int enabled)
+int MagSensor::setEnable(int32_t handle, int enabled)
 {
     ALOGD_IF(MAG_DEBUG, "MagSensor: enable %d %d", handle, enabled);
 

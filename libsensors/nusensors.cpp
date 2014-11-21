@@ -30,18 +30,19 @@
 #include <cutils/log.h>
 
 #include "nusensors.h"
-#include "LightSensor.h"
-#include "ProximitySensor.h"
+
 #include "AccelSensor.h"
+#include "LightSensor.h"
 #include "MagSensor.h"
+#include "ProximitySensor.h"
 
 /*****************************************************************************/
 
 struct sensors_poll_context_t {
     struct sensors_poll_device_t device; // must be first
 
-        sensors_poll_context_t();
-        ~sensors_poll_context_t();
+    sensors_poll_context_t();
+    ~sensors_poll_context_t();
     int activate(int handle, int enabled);
     int setDelay(int handle, int64_t ns);
     int pollEvents(sensors_event_t* data, int count);
@@ -124,7 +125,7 @@ sensors_poll_context_t::~sensors_poll_context_t() {
 int sensors_poll_context_t::activate(int handle, int enabled) {
     int index = handleToDriver(handle);
     if (index < 0) return index;
-    int err =  mSensors[index]->enable(handle, enabled);
+    int err =  mSensors[index]->setEnable(handle, enabled);
     if (enabled && !err) {
         const char wakeMessage(WAKE_MESSAGE);
         int result = write(mWritePipeFd, &wakeMessage, 1);
@@ -222,7 +223,7 @@ int init_nusensors(hw_module_t const* module, hw_device_t** device)
     sensors_poll_context_t *dev = new sensors_poll_context_t();
     memset(&dev->device, 0, sizeof(sensors_poll_device_t));
 
-    dev->device.common.tag = HARDWARE_DEVICE_TAG;
+    dev->device.common.tag      = HARDWARE_DEVICE_TAG;
     dev->device.common.version  = SENSORS_DEVICE_API_VERSION_0_1;
     dev->device.common.module   = const_cast<hw_module_t*>(module);
     dev->device.common.close    = poll__close;

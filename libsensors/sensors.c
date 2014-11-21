@@ -27,6 +27,18 @@
 
 static const struct sensor_t sSensorList[] = {
     {
+        .name       = "LSM303DLH 3-axis Accelerometer",
+        .vendor     = "ST Microelectronics",
+        .version    = 1,
+        .handle     = ID_A,
+        .type       = SENSOR_TYPE_ACCELEROMETER,
+        .maxRange   = MAX_RANGE_A,
+        .resolution = CONVERT_A,
+        .power      = 0.5f,
+        .minDelay   = 1000,
+        .reserved   = { }
+    },
+    {
         .name       = "APS-12D Light sensor",
         .vendor     = "Everlight",
         .version    = 1,
@@ -35,31 +47,7 @@ static const struct sensor_t sSensorList[] = {
         .maxRange   = 64000.0f,
         .resolution = 1.0f,
         .power      = 0.07f,
-        .minDelay   = 53000.0f,
-        .reserved   = { }
-    },
-    {
-        .name       = "APS-12D Proximity sensor",
-        .vendor     = "Everlight",
-        .version    = 1,
-        .handle     = ID_P,
-        .type       = SENSOR_TYPE_PROXIMITY,
-        .maxRange   = 1.0f,
-        .resolution = 1.0f,
-        .power      = 50.0f,
-        .minDelay   = 106000.0f,
-        .reserved   = { }
-    },
-    {
-        .name       = "LSM303DLH 3-axis Accelerometer",
-        .vendor     = "ST Microelectronics",
-        .version    = 1,
-        .handle     = ID_A,
-        .type       = SENSOR_TYPE_ACCELEROMETER,
-        .maxRange   = 2.0f*GRAVITY_EARTH,
-        .resolution = (2.0f*GRAVITY_EARTH)/2048.0f,
-        .power      = 0.5f,
-        .minDelay   = 1000.0f,
+        .minDelay   = 53000,
         .reserved   = { }
     },
     {
@@ -71,7 +59,19 @@ static const struct sensor_t sSensorList[] = {
         .maxRange   = 400.0f,
         .resolution = 0.1f,
         .power      = 0.5f,
-        .minDelay   = 14000.0f,
+        .minDelay   = 14000,
+        .reserved   = { }
+    },
+    {
+        .name       = "APS-12D Proximity sensor",
+        .vendor     = "Everlight",
+        .version    = 1,
+        .handle     = ID_P,
+        .type       = SENSOR_TYPE_PROXIMITY,
+        .maxRange   = 1.0f,
+        .resolution = 1.0f,
+        .power      = 50.0f,
+        .minDelay   = 106000,
         .reserved   = { }
     },
 };
@@ -99,8 +99,10 @@ struct sensors_module_t HAL_MODULE_INFO_SYM = {
         .name = "U8800 Sensors Module",
         .author = "The Android Open Source Project",
         .methods = &sensors_module_methods,
+        .dso = 0,
+        .reserved = { 0 },
     },
-    .get_sensors_list = sensors__get_sensors_list
+    .get_sensors_list = sensors__get_sensors_list,
 };
 
 /*****************************************************************************/

@@ -33,10 +33,10 @@ LOCAL_SRC_FILES :=          \
     nusensors.cpp           \
     InputEventReader.cpp    \
     SensorBase.cpp          \
-    LightSensor.cpp         \
-    ProximitySensor.cpp     \
     AccelSensor.cpp         \
-    MagSensor.cpp
+    LightSensor.cpp         \
+    MagSensor.cpp           \
+    ProximitySensor.cpp
 
 LOCAL_C_INCLUDES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr

@@ -27,7 +27,6 @@
 #include "nusensors.h"
 #include "SensorBase.h"
 #include "InputEventReader.h"
-#include "APSSensor.h"
 
 /*****************************************************************************/
 #define LSM303DLH_MAG_NAME            "lsm303dlh_mag"
@@ -63,7 +62,7 @@ private:
 public:
             MagSensor();
     virtual ~MagSensor();
-    virtual int enable(int32_t handle, int enabled);
+    virtual int setEnable(int32_t handle, int enabled);
     virtual int setDelay(int32_t handle, int64_t ns);
     virtual bool hasPendingEvents() const;
     virtual int readEvents(sensors_event_t* data, int count);

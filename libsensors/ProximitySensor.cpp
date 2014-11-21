@@ -58,7 +58,7 @@ ProximitySensor::~ProximitySensor() {
     close_device();
 }
 
-int ProximitySensor::enable(int32_t handle, int enabled)
+int ProximitySensor::setEnable(int32_t handle, int enabled)
 {
     ALOGD_IF(PROX_DEBUG, "ProximitySensor: enable %d %d", handle, enabled);
 

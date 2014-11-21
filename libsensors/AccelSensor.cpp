@@ -57,7 +57,7 @@ AccelSensor::~AccelSensor() {
     close_device();
 }
 
-int AccelSensor::enable(int32_t handle, int enabled)
+int AccelSensor::setEnable(int32_t handle, int enabled)
 {
     ALOGD_IF(ACCEL_DEBUG, "AccelSensor: enable %d %d", handle, enabled);
 

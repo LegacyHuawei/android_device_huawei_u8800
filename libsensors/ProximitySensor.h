@@ -51,7 +51,7 @@ private:
 public:
             ProximitySensor();
     virtual ~ProximitySensor();
-    virtual int enable(int32_t handle, int enabled);
+    virtual int setEnable(int32_t handle, int enabled);
     virtual int setDelay(int32_t handle, int64_t ns);
     virtual bool hasPendingEvents() const;
     virtual int readEvents(sensors_event_t* data, int count);
