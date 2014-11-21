@@ -1,5 +1,7 @@
 /* //device/libs/telephony/ril_commands.h
 **
+** Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+** Not a Contribution
 ** Copyright 2006, The Android Open Source Project
 ** Copyright (C) 2014 Rudolf Tammekivi <rtammekivi@gmail.com>
 **
@@ -124,11 +126,16 @@
     {0, dispatchVoid, responseVoid},                   //none
     {0, dispatchVoid, responseVoid},                   //none
     {RIL_REQUEST_VOICE_RADIO_TECH_V4, dispatchVoiceRadioTech, responseInts},
-    {0, dispatchVoid, responseVoid},                   //none
-    {0, dispatchVoid, responseVoid},                   //none
-    {0, dispatchVoid, responseVoid},                   //none
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
     {RIL_REQUEST_IMS_REGISTRATION_STATE_V4, dispatchVoid, responseInts},
     {RIL_REQUEST_IMS_SEND_SMS_V4, dispatchImsSms, responseSMS},
     {RIL_REQUEST_GET_DATA_CALL_PROFILE_V4, dispatchInts, responseGetDataCallProfile},
     {0, dispatchVoid, responseVoid},                   //none
     {0, dispatchVoid, responseVoid},                   //none
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
