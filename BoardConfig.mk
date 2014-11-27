@@ -35,9 +35,8 @@ TARGET_BOOTLOADER_BOARD_NAME := u8800
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-# Radio class.
+# Radio
 BOARD_PROVIDES_LIBRIL := true
-BOARD_RIL_CLASS := ../../../device/huawei/u8800/ril/
 
 # Wi-Fi
 BOARD_WLAN_DEVICE := qcwcn

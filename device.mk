@@ -54,8 +54,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=false \
 	rild.libpath=/system/lib/libril-qc-1.so \
-	rild.libargs=-d/dev/smd0 \
-	ro.telephony.ril_class=GBQualcommRIL
+	rild.libargs=-d/dev/smd0
 
 # Recovery
 PRODUCT_PROPERTY_OVERRIDES += \
