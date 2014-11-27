@@ -60,7 +60,6 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/u8800/bluetooth
-QCOM_BT_USE_SIBS := true
 
 # FM
 BOARD_HAVE_QCOM_FM := true
