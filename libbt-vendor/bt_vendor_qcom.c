@@ -126,7 +126,7 @@ static int bt_vendor_qcom_op(bt_vendor_opcode_t opcode, void *param)
 		break;
 	}
 	default:
-		break;
+		return -1;
 	}
 
 	return 0;
