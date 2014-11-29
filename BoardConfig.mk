@@ -62,6 +62,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/u8800/bluetooth
 
 # FM
 BOARD_HAVE_QCOM_FM := true
+AUDIO_FEATURE_ENABLED_FM := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := u8800_defconfig
