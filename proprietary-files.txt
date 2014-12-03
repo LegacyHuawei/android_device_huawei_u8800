@@ -22,7 +22,6 @@
 -system/lib/libaudioalsa.so
 
 # RIL
-system/bin/cnd
 system/bin/netmgrd
 system/bin/qmuxd
 system/lib/libril-qc-1.so
