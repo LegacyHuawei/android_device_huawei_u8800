@@ -39,8 +39,8 @@ system/lib/libhwrpc.so
 system/lib/libidl.so
 system/lib/libmmgsdilib.so
 system/lib/libnetmgr.so
--system/lib/libnv.so
--system/lib/liboncrpc.so
+system/lib/libnv.so
+system/lib/liboncrpc.so
 system/lib/libpbmlib.so
 system/lib/libqdp.so
 system/lib/libqmi.so
