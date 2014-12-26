@@ -15,10 +15,6 @@
 #
 
 on init
-    # IDEOS X5 Settings
-    chown system system /sys/devices/platform/msm_otg/mode
-    chown system system /sys/devices/platform/msm_hsusb/gadget/manual_chg_current
-
     # HW Props
     chown system system /sys/hwprops/btmac
     chown system system /sys/hwprops/wlanmac
