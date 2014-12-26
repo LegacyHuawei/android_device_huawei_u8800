@@ -15,11 +15,6 @@
 #
 
 on init
-    # HW Props
-    chown system system /sys/hwprops/btmac
-    chown system system /sys/hwprops/wlanmac
-    chown system system /sys/hwprops/reset
-
     # Sensors
     chown system system /dev/aps-12d
     chmod 0660 /dev/aps-12d
@@ -29,13 +24,8 @@ on init
     chmod 0660 /dev/lsm303dlh_mag
 
 on post-fs-data
-    mkdir /data/misc/hwprops 0770 system system
     mkdir /data/misc/sensors 0770 system system
 
 # SDC3 (SDIO) needs to have polling enabled
 on property:wlan.driver.status=loading
     write /sys/devices/platform/msm_sdcc.3/polling 1
-
-service hwprops /system/bin/hwprops
-    class main
-    oneshot
