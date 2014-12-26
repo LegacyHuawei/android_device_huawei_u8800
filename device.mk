@@ -46,10 +46,6 @@ PRODUCT_PACKAGES += \
 	FM2 \
 	FMRecord
 
-# Additional packages
-PRODUCT_PACKAGES += \
-	IDEOSX5Settings
-
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=false \
