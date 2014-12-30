@@ -67,5 +67,8 @@ AUDIO_FEATURE_ENABLED_FM := true
 # Kernel
 TARGET_KERNEL_CONFIG := u8800_defconfig
 
+# Recovery
+DEVICE_RESOLUTION := 480x800
+
 # Generic flags
 BOARD_USE_LEGACY_SENSORS_FUSION := true
