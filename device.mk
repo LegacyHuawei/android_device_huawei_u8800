@@ -32,7 +32,6 @@ PRODUCT_COPY_FILES += \
 
 # Configs
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
 	$(LOCAL_PATH)/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh
 
 # HAL
