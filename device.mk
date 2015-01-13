@@ -32,7 +32,6 @@ PRODUCT_COPY_FILES += \
 
 # Configs
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
 	$(LOCAL_PATH)/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh
 
 # HAL
