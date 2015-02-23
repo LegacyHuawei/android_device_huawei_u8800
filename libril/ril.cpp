@@ -758,6 +758,14 @@ dispatchEnterSimPin(Parcel& p, RequestInfo *pRI) {
 
     p2.setDataPosition(pos);
     dispatchStrings(p2, pRI);
+
+#ifdef MEMSET_FREED
+    memsetString(pin);
+    memsetString(appId);
+#endif
+
+    free(pin);
+    free(appId);
 }
 
 
@@ -788,6 +796,16 @@ dispatchEnterSimPuk(Parcel& p, RequestInfo *pRI) {
 
     p2.setDataPosition(pos);
     dispatchStrings(p2, pRI);
+
+#ifdef MEMSET_FREED
+    memsetString(puk);
+    memsetString(newPin);
+    memsetString(appId);
+#endif
+
+    free(puk);
+    free(newPin);
+    free(appId);
 }
 
 
@@ -818,6 +836,16 @@ dispatchChangeSimPin(Parcel& p, RequestInfo *pRI) {
 
     p2.setDataPosition(pos);
     dispatchStrings(p2, pRI);
+
+#ifdef MEMSET_FREED
+    memsetString(oldPin);
+    memsetString(newPin);
+    memsetString(appId);
+#endif
+
+    free(oldPin);
+    free(newPin);
+    free(appId);
 }
 
 
@@ -831,19 +859,17 @@ dispatchChangeSimPin(Parcel& p, RequestInfo *pRI) {
 static void
 dispatchDepersonalization(Parcel& p, RequestInfo *pRI) {
     RIL_Depersonalization_v4 d;
-    status_t status;
 
     memset (&d, 0, sizeof(d));
 
     int32_t count = p.readInt32();
-    char *type = strdupReadString(p);
-    char *netpin = strdupReadString(p);
 
+    char *type = strdupReadString(p);
     int typeInt = 0;
     char *endptr;
     typeInt = strtol(type, &endptr, 10);
     d.depersonalizationType = (RIL_PersoSubstate)typeInt;
-    strcpy(d.depersonalizationCode, netpin);
+    d.depersonalizationCode = strdupReadString(p);
 
     startRequest;
     appendPrintBuf("%stype=%d,pin=****",
@@ -851,27 +877,19 @@ dispatchDepersonalization(Parcel& p, RequestInfo *pRI) {
     closeRequest;
     printRequest(pRI->token, pRI->pCI->requestNumber);
 
-    if (status != NO_ERROR) {
-        goto invalid;
-    }
-
-    s_callbacks.onRequest(pRI->pCI->requestNumber, &d, sizeof(d), pRI);
+    CALL_ONREQUEST(pRI->pCI->requestNumber, &d, sizeof(d), pRI, pRI->socket_id);
 
 #ifdef MEMSET_FREED
+    memsetString(type);
     memsetString(d.depersonalizationCode);
 #endif
 
+    free(type);
     free(d.depersonalizationCode);
 
 #ifdef MEMSET_FREED
     memset(&d, 0, sizeof(d));
 #endif
-
-    return;
-invalid:
-    free(d.depersonalizationCode);
-    invalidCommandBlock(pRI);
-    return;
 }
 
 /**
@@ -1231,6 +1249,18 @@ dispatchQueryFacilityLock(Parcel& p, RequestInfo *pRI) {
 
     p2.setDataPosition(pos);
     dispatchStrings(p2, pRI);
+
+#ifdef MEMSET_FREED
+    memsetString(facility);
+    memsetString(password);
+    memsetString(serviceClass);
+    memsetString(appId);
+#endif
+
+    free(facility);
+    free(password);
+    free(serviceClass);
+    free(appId);
 }
 
 
@@ -1267,6 +1297,20 @@ dispatchSetFacilityLock(Parcel &p, RequestInfo *pRI) {
 
     p2.setDataPosition(pos);
     dispatchStrings(p2, pRI);
+
+#ifdef MEMSET_FREED
+    memsetString(facility);
+    memsetString(lockString);
+    memsetString(password);
+    memsetString(serviceClass);
+    memsetString(appId);
+#endif
+
+    free(facility);
+    free(lockString);
+    free(password);
+    free(serviceClass);
+    free(appId);
 }
 
 
