@@ -1,5 +1,7 @@
 /* //device/libs/telephony/ril_commands.h
 **
+** Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+** Not a Contribution
 ** Copyright 2006, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,13 +18,13 @@
 */
     {0, NULL, NULL},                   //none
     {RIL_REQUEST_GET_SIM_STATUS, dispatchVoid, responseSimStatus},
-    {RIL_REQUEST_ENTER_SIM_PIN, dispatchEnterSimPin, responseInts},
-    {RIL_REQUEST_ENTER_SIM_PUK, dispatchEnterSimPuk, responseInts},
-    {RIL_REQUEST_ENTER_SIM_PIN2, dispatchEnterSimPin, responseInts},
-    {RIL_REQUEST_ENTER_SIM_PUK2, dispatchEnterSimPuk, responseInts},
-    {RIL_REQUEST_CHANGE_SIM_PIN, dispatchChangeSimPin, responseInts},
-    {RIL_REQUEST_CHANGE_SIM_PIN2, dispatchChangeSimPin, responseInts},
-    {RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION, dispatchDepersonalization, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PIN, dispatchStrings, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PUK, dispatchStrings, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PIN2, dispatchStrings, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PUK2, dispatchStrings, responseInts},
+    {RIL_REQUEST_CHANGE_SIM_PIN, dispatchStrings, responseInts},
+    {RIL_REQUEST_CHANGE_SIM_PIN2, dispatchStrings, responseInts},
+    {RIL_REQUEST_ENTER_DEPERSONALIZATION_CODE, dispatchStrings, responseInts},
     {RIL_REQUEST_GET_CURRENT_CALLS, dispatchVoid, responseCallList},
     {RIL_REQUEST_DIAL, dispatchDial, responseVoid},
     {RIL_REQUEST_GET_IMSI, dispatchStrings, responseString},
@@ -56,13 +58,13 @@
     {RIL_REQUEST_GET_IMEISV, dispatchVoid, responseString},
     {RIL_REQUEST_ANSWER,dispatchVoid, responseVoid},
     {RIL_REQUEST_DEACTIVATE_DATA_CALL, dispatchStrings, responseVoid},
-    {RIL_REQUEST_QUERY_FACILITY_LOCK, dispatchQueryFacilityLock, responseInts},
-    {RIL_REQUEST_SET_FACILITY_LOCK, dispatchSetFacilityLock, responseInts},
+    {RIL_REQUEST_QUERY_FACILITY_LOCK, dispatchStrings, responseInts},
+    {RIL_REQUEST_SET_FACILITY_LOCK, dispatchStrings, responseInts},
     {RIL_REQUEST_CHANGE_BARRING_PASSWORD, dispatchStrings, responseVoid},
     {RIL_REQUEST_QUERY_NETWORK_SELECTION_MODE, dispatchVoid, responseInts},
     {RIL_REQUEST_SET_NETWORK_SELECTION_AUTOMATIC, dispatchVoid, responseVoid},
     {RIL_REQUEST_SET_NETWORK_SELECTION_MANUAL, dispatchString, responseVoid},
-    {RIL_REQUEST_QUERY_AVAILABLE_NETWORKS , dispatchVoid, responseStrings},
+    {RIL_REQUEST_QUERY_AVAILABLE_NETWORKS , dispatchVoid, responseStringsNetworks},
     {RIL_REQUEST_DTMF_START, dispatchString, responseVoid},
     {RIL_REQUEST_DTMF_STOP, dispatchVoid, responseVoid},
     {RIL_REQUEST_BASEBAND_VERSION, dispatchVoid, responseString},
@@ -119,12 +121,22 @@
     {RIL_REQUEST_REPORT_SMS_MEMORY_STATUS, dispatchInts, responseVoid},
     {RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING, dispatchVoid, responseVoid},
     {RIL_REQUEST_CDMA_GET_SUBSCRIPTION_SOURCE, dispatchCdmaSubscriptionSource, responseInts},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {RIL_REQUEST_VOICE_RADIO_TECH_V4, dispatchVoiceRadioTech, responseInts},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {RIL_REQUEST_IMS_REGISTRATION_STATE_V4, dispatchVoid, responseInts},
-    {RIL_REQUEST_IMS_SEND_SMS_V4, dispatchImsSms, responseSMS},
+    {RIL_REQUEST_ISIM_AUTHENTICATION, dispatchString, responseString},
+    {RIL_REQUEST_ACKNOWLEDGE_INCOMING_GSM_SMS_WITH_PDU, dispatchStrings, responseVoid},
+    {RIL_REQUEST_STK_SEND_ENVELOPE_WITH_STATUS, dispatchString, responseSIM_IO},
+    {RIL_REQUEST_VOICE_RADIO_TECH, dispatchVoiceRadioTech, responseInts},
+#ifndef RIL_NO_CELL_INFO_LIST
+    {RIL_REQUEST_GET_CELL_INFO_LIST, dispatchVoid, responseCellInfoList},
+    {RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE, dispatchInts, responseVoid},
+#endif
+    {RIL_REQUEST_SET_INITIAL_ATTACH_APN, dispatchSetInitialAttachApn, responseVoid},
+    {RIL_REQUEST_IMS_REGISTRATION_STATE, dispatchVoid, responseInts},
+    {RIL_REQUEST_IMS_SEND_SMS, dispatchImsSms, responseSMS},
+    {RIL_REQUEST_GET_DATA_CALL_PROFILE, dispatchInts, responseGetDataCallProfile},
+    {RIL_REQUEST_SET_UICC_SUBSCRIPTION, dispatchUiccSubscripton, responseVoid},
+    {RIL_REQUEST_SET_DATA_SUBSCRIPTION, dispatchVoid, responseVoid},
+    {RIL_REQUEST_SIM_TRANSMIT_BASIC, dispatchSIM_IO, responseSIM_IO},
+    {RIL_REQUEST_SIM_OPEN_CHANNEL, dispatchString, responseInts},
+    {RIL_REQUEST_SIM_CLOSE_CHANNEL, dispatchInts, responseVoid},
+    {RIL_REQUEST_SIM_TRANSMIT_CHANNEL, dispatchSIM_IO, responseSIM_IO},
+    {RIL_REQUEST_SIM_GET_ATR, dispatchInts, responseString},
