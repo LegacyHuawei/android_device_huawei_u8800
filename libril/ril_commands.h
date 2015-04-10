@@ -1,9 +1,6 @@
 /* //device/libs/telephony/ril_commands.h
 **
-** Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
-** Not a Contribution
 ** Copyright 2006, The Android Open Source Project
-** Copyright (C) 2014 Rudolf Tammekivi <rtammekivi@gmail.com>
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -19,12 +16,12 @@
 */
     {0, NULL, NULL},                   //none
     {RIL_REQUEST_GET_SIM_STATUS, dispatchVoid, responseSimStatus},
-    {RIL_REQUEST_ENTER_SIM_PIN, dispatchStrings, responseInts},
-    {RIL_REQUEST_ENTER_SIM_PUK, dispatchStrings, responseInts},
-    {RIL_REQUEST_ENTER_SIM_PIN2, dispatchStrings, responseInts},
-    {RIL_REQUEST_ENTER_SIM_PUK2, dispatchStrings, responseInts},
-    {RIL_REQUEST_CHANGE_SIM_PIN, dispatchStrings, responseInts},
-    {RIL_REQUEST_CHANGE_SIM_PIN2, dispatchStrings, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PIN, dispatchEnterSimPin, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PUK, dispatchEnterSimPuk, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PIN2, dispatchEnterSimPin, responseInts},
+    {RIL_REQUEST_ENTER_SIM_PUK2, dispatchEnterSimPuk, responseInts},
+    {RIL_REQUEST_CHANGE_SIM_PIN, dispatchChangeSimPin, responseInts},
+    {RIL_REQUEST_CHANGE_SIM_PIN2, dispatchChangeSimPin, responseInts},
     {RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION, dispatchDepersonalization, responseInts},
     {RIL_REQUEST_GET_CURRENT_CALLS, dispatchVoid, responseCallList},
     {RIL_REQUEST_DIAL, dispatchDial, responseVoid},
@@ -44,7 +41,7 @@
     {RIL_REQUEST_DTMF, dispatchString, responseVoid},
     {RIL_REQUEST_SEND_SMS, dispatchStrings, responseSMS},
     {RIL_REQUEST_SEND_SMS_EXPECT_MORE, dispatchStrings, responseSMS},
-    {RIL_REQUEST_SETUP_DATA_CALL, dispatchDataCall, responseStrings},
+    {RIL_REQUEST_SETUP_DATA_CALL, dispatchDataCall, responseSetupDataCall},
     {RIL_REQUEST_SIM_IO, dispatchSIM_IO, responseSIM_IO},
     {RIL_REQUEST_SEND_USSD, dispatchString, responseVoid},
     {RIL_REQUEST_CANCEL_USSD, dispatchVoid, responseVoid},
@@ -59,8 +56,8 @@
     {RIL_REQUEST_GET_IMEISV, dispatchVoid, responseString},
     {RIL_REQUEST_ANSWER,dispatchVoid, responseVoid},
     {RIL_REQUEST_DEACTIVATE_DATA_CALL, dispatchStrings, responseVoid},
-    {RIL_REQUEST_QUERY_FACILITY_LOCK, dispatchStrings, responseInts},
-    {RIL_REQUEST_SET_FACILITY_LOCK, dispatchStrings, responseInts},
+    {RIL_REQUEST_QUERY_FACILITY_LOCK, dispatchQueryFacilityLock, responseInts},
+    {RIL_REQUEST_SET_FACILITY_LOCK, dispatchSetFacilityLock, responseInts},
     {RIL_REQUEST_CHANGE_BARRING_PASSWORD, dispatchStrings, responseVoid},
     {RIL_REQUEST_QUERY_NETWORK_SELECTION_MODE, dispatchVoid, responseInts},
     {RIL_REQUEST_SET_NETWORK_SELECTION_AUTOMATIC, dispatchVoid, responseVoid},
@@ -122,20 +119,12 @@
     {RIL_REQUEST_REPORT_SMS_MEMORY_STATUS, dispatchInts, responseVoid},
     {RIL_REQUEST_REPORT_STK_SERVICE_IS_RUNNING, dispatchVoid, responseVoid},
     {RIL_REQUEST_CDMA_GET_SUBSCRIPTION_SOURCE, dispatchCdmaSubscriptionSource, responseInts},
-    {0, dispatchVoid, responseVoid},                   //none
-    {0, dispatchVoid, responseVoid},                   //none
-    {0, dispatchVoid, responseVoid},                   //none
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
+    {0, dispatchVoid, responseVoid},
     {RIL_REQUEST_VOICE_RADIO_TECH_V4, dispatchVoiceRadioTech, responseInts},
     {0, dispatchVoid, responseVoid},
     {0, dispatchVoid, responseVoid},
     {0, dispatchVoid, responseVoid},
     {RIL_REQUEST_IMS_REGISTRATION_STATE_V4, dispatchVoid, responseInts},
     {RIL_REQUEST_IMS_SEND_SMS_V4, dispatchImsSms, responseSMS},
-    {RIL_REQUEST_GET_DATA_CALL_PROFILE_V4, dispatchInts, responseGetDataCallProfile},
-    {0, dispatchVoid, responseVoid},                   //none
-    {0, dispatchVoid, responseVoid},                   //none
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
-    {0, dispatchVoid, responseVoid},
