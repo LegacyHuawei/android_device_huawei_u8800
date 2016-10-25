@@ -69,3 +69,6 @@ TARGET_KERNEL_CONFIG := u8800_defconfig
 
 # Generic flags
 BOARD_USE_LEGACY_SENSORS_FUSION := true
+
+# inherit from the proprietary version
+-include vendor/huawei/msm7x30-common/BoardConfigVendor.mk
