@@ -20,6 +20,7 @@
 #include <cutils/log.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <string.h>
 
 int bt_get_rfkill_state_path(char *state_path, size_t size)
 {
