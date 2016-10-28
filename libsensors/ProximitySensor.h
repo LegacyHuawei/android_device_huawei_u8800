@@ -18,10 +18,6 @@
 #ifndef ANDROID_PROXIMITY_SENSOR_H
 #define ANDROID_PROXIMITY_SENSOR_H
 
-#include <stdint.h>
-#include <errno.h>
-#include <sys/cdefs.h>
-#include <sys/types.h>
 #include <linux/input/aps-12d.h>
 
 #include "nusensors.h"

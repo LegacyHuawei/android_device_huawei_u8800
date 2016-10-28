@@ -15,22 +15,13 @@
  * limitations under the License.
  */
 
-#include <hardware/sensors.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <dirent.h>
-#include <math.h>
-
-#include <poll.h>
-#include <pthread.h>
-
-#include <linux/input.h>
-
-#include <cutils/atomic.h>
 #include <cutils/log.h>
+#include <fcntl.h>
+#include <hardware/sensors.h>
+#include <poll.h>
+#include <string.h>
 
 #include "nusensors.h"
-
 #include "AccelSensor.h"
 #include "LightSensor.h"
 #include "MagSensor.h"

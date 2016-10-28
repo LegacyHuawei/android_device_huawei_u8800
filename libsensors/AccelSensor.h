@@ -18,10 +18,6 @@
 #ifndef ANDROID_ACCEL_SENSOR_H
 #define ANDROID_ACCEL_SENSOR_H
 
-#include <stdint.h>
-#include <errno.h>
-#include <sys/cdefs.h>
-#include <sys/types.h>
 #include <linux/input/lsm303dlh.h>
 
 #include "nusensors.h"

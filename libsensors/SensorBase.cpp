@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-#include <fcntl.h>
-#include <errno.h>
-#include <math.h>
-#include <poll.h>
-#include <unistd.h>
-#include <dirent.h>
-#include <sys/select.h>
+#include <linux/input.h>
 
 #include <cutils/log.h>
-
-#include <linux/input.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <string.h>
 
 #include "SensorBase.h"
 

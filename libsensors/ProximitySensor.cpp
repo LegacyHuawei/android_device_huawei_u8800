@@ -17,14 +17,8 @@
 
 #define PROX_DEBUG 0
 
-#include <fcntl.h>
-#include <errno.h>
-#include <math.h>
-#include <poll.h>
-#include <unistd.h>
-#include <dirent.h>
-#include <sys/select.h>
 #include <cutils/log.h>
+#include <string.h>
 
 #include "ProximitySensor.h"
 
