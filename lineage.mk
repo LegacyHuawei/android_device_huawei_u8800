@@ -22,7 +22,7 @@ TARGET_SCREEN_WIDTH := 480
 # Custom tag for unofficial builds
 TARGET_UNOFFICIAL_BUILD_ID := LegacyHuawei
 
-# Inherit some common CM stuff.
+# Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
@@ -30,7 +30,7 @@ $(call inherit-product, device/huawei/u8800/full_u8800.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := u8800
-PRODUCT_NAME := cm_u8800
+PRODUCT_NAME := lineage_u8800
 PRODUCT_MODEL := IDEOS X5
 PRODUCT_BRAND := Huawei
 PRODUCT_MANUFACTURER := Huawei
