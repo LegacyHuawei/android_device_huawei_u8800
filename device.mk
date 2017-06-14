@@ -38,13 +38,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	sensors.u8800
 
-# FM radio
-PRODUCT_PACKAGES += \
-	qcom.fmradio \
-	libqcomfm_jni \
-	FM2 \
-	FMRecord
-
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=false \
